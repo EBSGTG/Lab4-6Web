@@ -1,0 +1,136 @@
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <title>Test Lab 4-6</title>
+</head>
+
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+
+<div class='popup'>
+<div class='c'>
+<h1>Введіть дані:</h1>
+<form id="user_form">
+  <h3>П.І.Б.</h3>
+  <input type="text" id="nameof" name="nameof" required placeholder="Ваш П.І.Б.">
+  <h3>Група</h3>
+  <input type="group" id="group" name="group" required placeholder="Ваша група">
+</form>
+<input type="submit"   onClick="al()" class='close'  value="Розпочати" />
+<input type="submit" class='close' onclick="window.location.reload(true)" value="Закрити"/>
+</div>
+</div>
+</div>
+
+<body onload="shuffleAnswers()">
+	<div id="container">
+
+		<header>
+			<h1>Наумчик Є.Л. ТР-14 Лаб 4-6</h1>
+     		<p>Перевір свої знання в  <strong>Основи JS. Цикли, умовні вирази, функції користувачів</strong></p>
+  		</header>
+
+		<section>
+		  	<form name="quizForm" onsubmit="return submitAnswers()" >
+
+				<h3>1. Якого виду циклу немає в JS?</h3>
+        <div id="q1-ans">
+				<label><input type="radio" name="q1" value="a" id="q1a">for<br></label>
+				<label><input type="radio" name="q1" value="b" id="q1b">for each<br></label>
+				<label><input type="radio" name="q1" value="c" id="q1c">do while<br></label>
+				<label><input type="radio" name="q1" value="d" id="q1d">while<br></label>
+
+        </div>
+				<h3>2. Завдяки якій директиві можна перервати цикл?</h3>
+        <div id="q2-ans">
+          <label><input type="radio" name="q2" value="a" id="q2a">break<br></label>
+            <label><input type="radio" name="q2" value="b" id="q2b">stop<br></label>
+              <label><input type="radio" name="q2" value="c" id="q2c">continue<br></label>
+                <label><input type="radio" name="q2" value="d" id="q2d">crash<br></label>
+        </div>
+				<h3>3. Яка властивість функцій не існує в JS?</h3>
+        <div id="q3-ans">
+          <label><input type="radio" name="q3" value="a" id="q3a">Function.arguments<br></label>
+            <label><input type="radio" name="q3" value="b" id="q3b">Function.arity<br></label>
+              <label><input type="radio" name="q3" value="c" id="q3c">Function.caller<br></label>
+                <label><input type="radio" name="q3" value="d" id="q3d">Function.number<br></label>
+        </div>
+
+				<h3>4. Чи існує конструкція switch...case в JS?</h3>
+        <div id="q4-ans">
+          <label><input type="radio" name="q4" value="a" id="q4a">Ні<br></label>
+            <label><input type="radio" name="q4" value="b" id="q4b">Так<br></label>
+            <label><input type="radio" name="q4" value="c" id="q4c">Не знаю<br></label>
+        </div>
+
+				<h3>5. Якого методу не існує в JS?</h3>
+        <div id="q5-ans">
+				<label><input type="radio" name="q5" value="a" id="q5a">Function.apply()<br></label>
+          <label><input type="radio" name="q5" value="b" id="q5b">Function.bind()<br></label>
+            <label><input type="radio" name="q5" value="c" id="q5c">Function.call()<br></label>
+              <label><input type="radio" name="q5" value="d" id="q5d">Function.create()<br></label>
+         </div>
+
+        <h3>6. Як об'явити функцію в JS?</h3>
+        <select name="q6">
+          <option  name="q6" value="a" id="q6a">function NameofFunction(arguments){}</option>
+          <option name="q6" value="b" id="q6b">func NameofFunction(arguments){}</option>
+          <option name="q6" value="c" id="q6c">function NameofFunction{}</option>
+          <option name="q6" value="d" id="q6d">function NameofFunction</option>
+        </select>
+
+        <h3>7. Якого способу створення функції не існує?</h3>
+        <select name="q7">
+          <option  name="q7" value="a" id="q6a">Function Declaration</option>
+          <option name="q7" value="b" id="q6b">Function Expression</option>
+          <option name="q7" value="c" id="q6c">Arrow Function</option>
+          <option name="q7" value="d" id="q6d">Array Function</option>
+        </select>
+
+        <h3>8. Головні операції з функцією?</h3>
+        <div id="q8-ans">
+          <label><input type="checkbox" name="q8"  value="a" id="q8a">Створення<br></label>
+            <label><input type="checkbox" name="q8"  value="b" id="q8b">Виклик<br></label>
+              <label><input type="checkbox" name="q8"  value="c" id="q8c">Зміна<br></label>
+                <label> <input type="checkbox" name="q8" value="d"  id="q8d" >Видалення<br></label>
+        </div>
+
+        <h3>9. Оберіть цикли, які існують в JS?</h3>
+        <div id="q9-ans">
+          <label><input type="checkbox" name="q9"  value="a" id="q9a">for ... in<br></label>
+            <label><input type="checkbox" name="q9"  value="b" id="q9b">for ... of<br></label>
+              <label><input type="checkbox" name="q9"  value="c" id="q9c">loop<br></label>
+                <label><input type="checkbox" name="q9" value="d"  id="q9d" >for each<br></label>
+        </div>
+
+        <h3>10. Оберіть правильні відповіді:</h3>
+          <div id="variants" ondrop="dropUser(this, event)" ondragenter="return false" ondragover="return false">
+            <h2>Варіанти</h2>
+            <a draggable="true" class="user" id="1" ondragstart="dragUser(this, event)">for</a>
+            <a draggable="true" class="user" id="1" ondragstart="dragUser(this, event)">for ... in</a>
+            <a draggable="true" class="user" id="1" ondragstart="dragUser(this, event)">for ... of</a>
+            <a draggable="true" class="user" id="1" ondragstart="dragUser(this, event)">while</a>
+            <a draggable="true" class="user" id="0" ondragstart="dragUser(this, event)">if</a>
+            <a draggable="true" class="user" id="0" ondragstart="dragUser(this, event)">else</a>
+          </div>
+          <div id="loops" ondrop="dropUser(this, event)" ondragenter="return false" ondragover="return false">
+            <h2>Цикли</h2>
+          </div>
+          <div id="conditions" ondrop="dropUser(this, event)" ondragenter="return false" ondragover="return false">
+            <h2>Умовні оператори</h2>
+          </div>
+          <div class="clear"></div>
+        <br><br>
+				<input type="submit" id="btn"  value="Закінчити" onClick="CheckDandD()">
+        <input type="submit" value="Перезапуск" onClick="window.location.reload(true)">
+        <div id="results"></div>
+		  	</form>
+		</section>
+	</div>
+
+<script src="./scripts.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+</body>
